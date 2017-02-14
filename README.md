@@ -7,14 +7,14 @@ with a list of demo pages.
 
 ## Installation (WIP)
 
-> These steps are subject to change. The extension will move to https://github.com/civicrm/org.civicrm.styleguide
+> These steps are subject to change.
 
 ```
 mkdir sites/all/modules/civicrm/ext
-git clone https://github.com/civicrm/civihr sites/all/modules/civicrm/ext/civichr
-cd sites/all/modules/civicrm/ext/civichr/
-cv api extension.refresh
-cv api extension.install keys=org.civicrm.styleguide,org.civicrm.bootstrapcivicrm
+cd sites/all/modules/civicrm/ext
+git clone https://github.com/civicrm/org.civicrm.london london
+git clone clone https://github.com/civicrm/org.civicrm.styleguide styleguide
+cv en london styleguide
 ```
 
 ## Creating Additional Style Guides
