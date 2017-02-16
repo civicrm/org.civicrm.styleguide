@@ -14,8 +14,6 @@ function styleguide_civicrm_config(&$config) {
 /**
  * Implements hook_civicrm_xmlMenu().
  *
- * @param array $files
- *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_xmlMenu
  */
 function styleguide_civicrm_xmlMenu(&$files) {
@@ -70,13 +68,6 @@ function styleguide_civicrm_disable() {
 /**
  * Implements hook_civicrm_upgrade().
  *
- * @param $op string, the type of operation being performed; 'check' or 'enqueue'
- * @param $queue CRM_Queue_Queue, (for 'enqueue') the modifiable list of pending up upgrade tasks
- *
- * @return mixed
- *   Based on op. for 'check', returns array(boolean) (TRUE if upgrades are pending)
- *                for 'enqueue', returns void
- *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_upgrade
  */
 function styleguide_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
@@ -100,8 +91,6 @@ function styleguide_civicrm_managed(&$entities) {
  *
  * Generate a list of case-types.
  *
- * @param array $caseTypes
- *
  * Note: This hook only runs in CiviCRM 4.4+.
  *
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_caseTypes
@@ -121,7 +110,7 @@ function styleguide_civicrm_caseTypes(&$caseTypes) {
  * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_caseTypes
  */
 function styleguide_civicrm_angularModules(&$angularModules) {
-_styleguide_civix_civicrm_angularModules($angularModules);
+  _styleguide_civix_civicrm_angularModules($angularModules);
 }
 
 /**
@@ -169,5 +158,4 @@ function styleguide_civicrm_container(\Symfony\Component\DependencyInjection\Con
     'CRM_StyleGuide_StyleGuides',
     array()
   ));
-
 }
