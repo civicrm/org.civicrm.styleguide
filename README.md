@@ -12,9 +12,9 @@ with a list of demo pages.
 ```
 mkdir sites/all/modules/civicrm/ext
 cd sites/all/modules/civicrm/ext
-git clone https://github.com/civicrm/org.civicrm.london london
+git clone https://github.com/civicrm/org.civicrm.shoreditch shoreditch
 git clone clone https://github.com/civicrm/org.civicrm.styleguide styleguide
-cv en london styleguide
+cv en shoreditch styleguide
 ```
 
 ## Creating Additional Style Guides

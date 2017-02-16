@@ -3,7 +3,7 @@
 //   2. Load metadata about the local CiviCRM instance.
 
 var cv = require('civicrm-cv')({mode: 'sync'});
-cv('api extension.install keys=org.civicrm.styleguide,org.civicrm.london');
+cv('api extension.install keys=org.civicrm.styleguide,org.civicrm.shoreditch');
 
 /**
  * The _CV variable stores a cache of metadata about the local CiviCRM instance.
