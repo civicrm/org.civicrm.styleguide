@@ -1,13 +1,14 @@
 var backstopjs = require('backstopjs');
 var civicrmScssRoot = require('civicrm-scssroot')();
+var Promise = require('es6-promise').Promise;
 var fs = require('fs');
-var _ = require('lodash');
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var color = require('gulp-color');
 var file = require('gulp-file');
 var bulk = require('gulp-sass-bulk-import');
 var sass = require('gulp-sass');
+var _ = require('lodash');
 var argv = require('yargs').argv;
 
 /**
