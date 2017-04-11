@@ -55,6 +55,33 @@ and navigate to ""Support => Developer => Style Guides => My Guide"
 
 ## Tests
 
+### BackstopJS
+This extension uses [BackstopJS](https://github.com/garris/BackstopJS) to detect visual changes on the styleguide.
+
+This tool should be used for example when working on a CiviCRM theme like [shoreditch](https://github.com/civicrm/org.civicrm.shoreditch), to make sure that no regression issues or unintended changes are accidentally introduced
+
+To use BackstopJS first install the node packages
+```
+npm install
+```
+and then tell BackstopJS to take the reference screenshots
+```
+gulp backstopjs:reference
+```
+Once you are done with your changes, you can take the same screenshots again that will then be compared by the tool to spot visual differences
+```
+gulp backstopjs:test
+```
+If the visual difference are ok, you can tell BackstopJS to approve them, so that they will be used as the reference from that point forward
+```
+gulp backstopjs:approve
+```
+If you need to reopen the last html report, simply run
+```
+gulp backstop:report
+```
+
+### Protractor
 The browser-level integration tests are implemented with `protractor` and stored
 under `tests/protractor/`.  (If you have not already installed Protractor, then
 follow [the setup instructions from `protractortest.org`](http://www.protractortest.org/).)
