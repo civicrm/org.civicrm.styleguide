@@ -15,14 +15,9 @@
 
 @include panel-color('headings', $gray-darker, $crm-white);
 @include panel-color('copy', $gray-dark, $crm-white);
-@include panel-color('gray-light', $gray-light);
-@include panel-color('gray-lighter', $gray-lighter);
-@include panel-color('gray-lightest', $crm-gray-lightest);
 @include panel-color('white', #ffffff);
 @include panel-color('primary', $brand-primary, $crm-white);
 @include panel-color('success', $brand-success, $crm-white);
 @include panel-color('warning', $brand-warning, $crm-white);
 @include panel-color('danger', $brand-danger, $crm-white);
 @include panel-color('dark-gray', $gray-dark, $crm-white);
-@include panel-color('dark-grayblue', $crm-grayblue-dark);
-@include panel-color('darker-grayblue', $crm-grayblue-darker);
