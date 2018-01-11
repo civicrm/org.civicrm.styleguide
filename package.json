@@ -9,17 +9,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "backstopjs": "^2.6.11",
+    "backstopjs": "~2.6.11",
     "civicrm-cv": "civicrm/cv-nodejs",
     "civicrm-scssroot": "git://github.com/totten/civicrm-scssroot.git#v0.1.1",
-    "es6-promise": "^4.1.0",
-    "gulp": "^3.9.0",
-    "gulp-clean": "^0.3.2",
+    "es6-promise": "~4.1.0",
+    "gulp": "~3.9.0",
+    "gulp-clean": "~0.3.2",
     "gulp-color": "0.0.1",
-    "gulp-file": "^0.3.0",
-    "gulp-sass": "^2.1.0",
-    "gulp-sass-bulk-import": "^0.3.2",
+    "gulp-file": "~0.3.0",
+    "gulp-sass": "~2.1.0",
+    "gulp-sass-bulk-import": "~0.3.2",
     "gulp-sass-glob": "0.0.2",
-    "lodash": "^4.17.4"
+    "lodash": "~4.17.4",
+    "yargs": "~10.0.3"
   }
 }
