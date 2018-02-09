@@ -1,15 +1,17 @@
 {
   "name": "org.civicrm.styleguide",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "protractor tests/protractor/conf.js"
+  "description": "Demonstrate common HTMTL/CSS styling conventions used within CiviCRM",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/civicrm/org.civicrm.styleguide"
   },
-  "author": "",
-  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/civicrm/org.civicrm.styleguide/issues"
+  },
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "test": "protractor tests/protractor/conf.js"
   },
   "lint-staged": {
     "*.js": ["semistandard --fix", "git add"]
