@@ -35,6 +35,9 @@
     "lint-staged": "^6.1.0",
     "lodash": "^4.17.5",
     "semistandard": "^12.0.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-scss": "^2.3.0",
     "yargs": "^11.0.0"
   }
 }
