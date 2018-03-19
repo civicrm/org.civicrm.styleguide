@@ -32,7 +32,8 @@
     "rules": {
       "max-nesting-depth": 3,
       "no-extra-semicolons": true,
-      "no-duplicate-selectors": true
+      "no-duplicate-selectors": true,
+      "scss/dollar-variable-colon-space-after": "at-least-one-space"
     }
   },
   "devDependencies": {
@@ -54,7 +55,7 @@
     "stylelint": "^8.4.0",
     "stylelint-config-sass-guidelines": "^4.1.0",
     "stylelint-order": "^0.8.0",
-    "stylelint-scss": "^2.3.0",
+    "stylelint-scss": "^2.5.0",
     "yargs": "^11.0.0"
   }
 }
