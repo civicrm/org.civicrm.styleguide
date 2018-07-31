@@ -137,4 +137,4 @@ gulp.task('watch', function () {
   gulp.watch('scss/**/*.scss', gulp.parallel('sass'));
 });
 
-gulp.task('default', gulp.parallel('sass', 'watch'));
+gulp.task('default', gulp.parallel('sass'));
