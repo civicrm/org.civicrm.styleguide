@@ -16,14 +16,16 @@ var argv = require('yargs').argv;
  */
 (function () {
   gulp.task('sass', function () {
-    civicrmScssRoot.updateSync();
-    gulp.src('scss/*.scss')
-      .pipe(bulk())
-      .pipe(sass({
-        includePaths: civicrmScssRoot.getPath(),
-        outputStyle: 'compressed'
-      }).on('error', sass.logError))
-      .pipe(gulp.dest('css/'));
+    return civicrmScssRoot.update()
+      .then(function () {
+        return gulp.src('scss/*.scss')
+          .pipe(bulk())
+          .pipe(sass({
+            includePaths: civicrmScssRoot.getPath(),
+            outputStyle: 'compressed'
+          }).on('error', sass.logError))
+          .pipe(gulp.dest('css/'));
+      });
   });
 }());
 
@@ -34,32 +36,24 @@ var argv = require('yargs').argv;
   var backstopDir = 'backstop_data/';
   var files = { config: 'site-config.json', tpl: 'backstop.tpl.json' };
   var configTpl = {
-    "url": "http://%{site-host}",
-    "credentials": { "name": "%{user-name}", "pass": "%{user-password}" }
+    'url': 'http://%{site-host}',
+    'credentials': { 'name': '%{user-name}', 'pass': '%{user-password}' }
   };
 
   gulp.task('backstopjs:reference', function (done) {
-    runBackstopJS('reference').then(function () {
-      done();
-    });
+    runBackstopJS('reference').then(done);
   });
 
   gulp.task('backstopjs:test', function (done) {
-    runBackstopJS('test').then(function () {
-      done();
-    });
+    runBackstopJS('test').then(done);
   });
 
   gulp.task('backstopjs:report', function (done) {
-    runBackstopJS('openReport').then(function () {
-      done();
-    });
+    runBackstopJS('openReport').then(done);
   });
 
   gulp.task('backstopjs:approve', function (done) {
-    runBackstopJS('approve').then(function () {
-      done();
-    });
+    runBackstopJS('approve').then(done);
   });
 
   /**
@@ -68,7 +62,7 @@ var argv = require('yargs').argv;
    *
    * @return {Boolean} [description]
    */
-  function isConfigFilePresent() {
+  function isConfigFilePresent () {
     var check = true;
 
     try {
@@ -87,34 +81,34 @@ var argv = require('yargs').argv;
    * @param  {string} command
    * @return {Promise}
    */
-  function runBackstopJS(command) {
+  function runBackstopJS (command) {
     var destFile = 'backstop.temp.json';
 
     if (!isConfigFilePresent()) {
       console.log(color(
-        "No site-config.json file detected!\n" +
-        "One has been created for you under " + backstopDir + "\n" +
-        "Please insert the real value for each placholder and try again", "RED"
+        'No site-config.json file detected!\n' +
+        'One has been created for you under ' + backstopDir + '\n' +
+        'Please insert the real value for each placholder and try again', 'RED'
       ));
 
-      return Promise.reject();
+      return Promise.reject(new Error());
     }
 
     return new Promise(function (resolve) {
       gulp.src(backstopDir + files.tpl)
-      .pipe(file(destFile, tempFileContent()))
-      .pipe(gulp.dest(backstopDir))
-      .on('end', function () {
-        var promise = backstopjs(command, {
-          configPath: backstopDir + destFile,
-          filter: argv.filter
-        })
-        .catch(_.noop).then(function () { // equivalent to .finally()
-          gulp.src(backstopDir + destFile, { read: false }).pipe(clean());
-        });
+        .pipe(file(destFile, tempFileContent()))
+        .pipe(gulp.dest(backstopDir))
+        .on('end', function () {
+          var promise = backstopjs(command, {
+            configPath: backstopDir + destFile,
+            filter: argv.filter
+          })
+            .catch(_.noop).then(function () { // equivalent to .finally()
+              gulp.src(backstopDir + destFile, { read: false }).pipe(clean());
+            });
 
-        resolve(promise);
-      });
+          resolve(promise);
+        });
     });
   }
 
@@ -125,7 +119,7 @@ var argv = require('yargs').argv;
    *
    * @return {string}
    */
-  function tempFileContent() {
+  function tempFileContent () {
     var config = JSON.parse(fs.readFileSync(backstopDir + files.config));
     var tpl = JSON.parse(fs.readFileSync(backstopDir + files.tpl));
 
@@ -140,7 +134,7 @@ var argv = require('yargs').argv;
 }());
 
 gulp.task('watch', function () {
-  gulp.watch('scss/**/*.scss', ['sass']);
+  gulp.watch('scss/**/*.scss', gulp.parallel('sass'));
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', gulp.parallel('sass'));
