@@ -6,7 +6,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 var color = require('gulp-color');
 var file = require('gulp-file');
-var bulk = require('gulp-sass-bulk-import');
+var glob = require('gulp-sass-glob');
 var sass = require('gulp-sass');
 var _ = require('lodash');
 var argv = require('yargs').argv;
@@ -19,7 +19,7 @@ var argv = require('yargs').argv;
     return civicrmScssRoot.update()
       .then(function () {
         return gulp.src('scss/*.scss')
-          .pipe(bulk())
+          .pipe(glob())
           .pipe(sass({
             includePaths: civicrmScssRoot.getPath(),
             outputStyle: 'compressed'
