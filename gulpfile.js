@@ -103,7 +103,7 @@ var argv = require('yargs').argv;
             configPath: backstopDir + destFile,
             filter: argv.filter
           })
-            .catch(_.noop).then(function () { // equivalent to .finally()
+            .catch(() => {}).then(function () { // equivalent to .finally()
               gulp.src(backstopDir + destFile, { read: false }).pipe(clean());
             });
 
